@@ -6,15 +6,12 @@ function App() {
   const [user, setUser] = useState<string | null>(null);
 
   return (
-    <div className="p-4">
+    <div className="font-inter ">
       {!user ? (
         <LoginPage setUser={setUser} />
       ) : (
         <>
-          <div className="text-3xl font-inter text-primary">
-            Hierarchy Tree test
-          </div>
-          <HierarchyTreePage />
+          <HierarchyTreePage userId={user} setUser={setUser} />
         </>
       )}
     </div>

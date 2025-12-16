@@ -19,7 +19,7 @@ function UserNode({ user }: { user: User & { reports: User[] } }) {
         onClick={handleToggle}
       >
         {
-          <span className="font-extrabold text-2xl text-primary">
+          <span className="font-extrabold text-2xl text-primary w-6">
             {user.reports.length > 0 ? "+" : "-"}
           </span>
         }

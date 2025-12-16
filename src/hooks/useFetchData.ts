@@ -26,7 +26,5 @@ export default function useFetchData() {
     loadData();
   }, []);
 
-  console.log("entrou");
-
   return data;
 }
