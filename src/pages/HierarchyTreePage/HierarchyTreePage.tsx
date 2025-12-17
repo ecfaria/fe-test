@@ -26,7 +26,7 @@ function HierarchyTreePage({
   return (
     <>
       <header className="flex justify-between items-center p-4 bg-primary/10">
-        <h1 className="text-3xl text-primary ">Hierarchy Tree test</h1>
+        <h1 className="text-2xl md:text-3xl text-primary ">Hierarchy Tree</h1>
         {currentUser && (
           <span>
             {`${currentUser.firstName} ${currentUser.lastName}`}{" "}

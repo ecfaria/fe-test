@@ -13,7 +13,7 @@ function UserAvatar({
 
   if (!photo || imageError) {
     return (
-      <div className="w-14 h-14 rounded-full mr-2 border-2 border-primary bg-primary flex items-center justify-center text-white">
+      <div className="size-10 md:size-14 rounded-full border-2 border-primary bg-primary flex items-center justify-center text-white">
         {`${firstName.charAt(0)}${lastName.charAt(0)}`}
       </div>
     );
@@ -23,7 +23,7 @@ function UserAvatar({
     <img
       src={photo}
       alt={`${firstName} ${lastName}`}
-      className="w-14 h-14 rounded-full mr-2 border-2 border-primary object-cover"
+      className="size-10 md:size-14 rounded-full border-2 border-primary object-cover object-center inline-block"
       onError={() => setImageError(true)}
     />
   );

@@ -16,23 +16,25 @@ function UserNode({ user }: { user: User & { reports: User[] } }) {
   return (
     <li key={user.id}>
       <div
-        className="flex items-center mb-2 gap-2 cursor-pointer hover:bg-primary/10 p-2 rounded transition-all"
+        className="flex items-center mb-2 md:mb-0 gap-1 md:gap-2 cursor-pointer hover:bg-primary/10 rounded transition-all md:p-2"
         onClick={handleToggle}
       >
-        {
-          <span className="font-extrabold text-2xl text-primary w-6">
-            {user.reports.length > 0 ? "+" : "-"}
-          </span>
-        }
+        <span className="font-extrabold text-2xl text-primary w-6">
+          {user.reports.length > 0 ? "+" : "-"}
+        </span>
         <UserAvatar
           firstName={user.firstName}
           lastName={user.lastName}
           photo={user.photo}
         />
-        <h2 className="text-lg font-semibold text-neutral-600">
-          {user.firstName} {user.lastName}
-        </h2>
-        <p className="text-neutral-400">{user.email}</p>
+        <div className="flex flex-col md:flex-row md:gap-2 md:items-center min-w-0">
+          <h2 className="md:text-lg font-semibold text-neutral-600">
+            {user.firstName} {user.lastName}
+          </h2>
+          <p className="text-neutral-400 text-sm md:text-base overflow-hidden text-ellipsis whitespace-nowrap">
+            {user.email}
+          </p>
+        </div>
       </div>
       {isExpanded && user.reports && <TreeNode users={user.reports} />}
     </li>
