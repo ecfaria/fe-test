@@ -4,7 +4,7 @@ import { buildOrgTree } from "@/utils/buildOrgTree";
 
 function LogoutButton({ handleLogout }: { handleLogout: () => void }) {
   return (
-    <button className="text-red-500 underline" onClick={handleLogout}>
+    <button className="underline hover:text-pink-500" onClick={handleLogout}>
       Logout
     </button>
   );
@@ -25,12 +25,12 @@ function HierarchyTreePage({
 
   return (
     <>
-      <header className="flex justify-between items-center p-4 bg-primary/10">
-        <h1 className="text-2xl md:text-3xl text-primary ">Hierarchy Tree</h1>
+      <header className="flex justify-between items-center p-4 bg-primary text-white">
+        <h1 className="text-2xl md:text-3xl ">Hierarchy Tree</h1>
         {currentUser && (
           <span>
-            {`${currentUser.firstName} ${currentUser.lastName}`}{" "}
-            <LogoutButton handleLogout={() => setUser(null)} />
+            {`${currentUser.firstName} ${currentUser.lastName}`} ({""}
+            <LogoutButton handleLogout={() => setUser(null)} />)
           </span>
         )}
       </header>

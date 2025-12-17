@@ -13,11 +13,9 @@ function LoginPage({ setUser }: { setUser: (userId: number | null) => void }) {
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
 
-    // const parsedPassword = JSON.parse(JSON.stringify(password));
-
     const secret = encode(email, password);
 
-    const user = secrets[secret];
+    const user = secrets?.[secret];
 
     if (!user) {
       setUserNotFound(true);
@@ -43,7 +41,6 @@ function LoginPage({ setUser }: { setUser: (userId: number | null) => void }) {
             required
             className="border border-gray-300 rounded-full px-2 py-1 bg-purple-200 focus:bg-white h-10 transition-all"
             placeholder="Email Address"
-            value="emily.jo@jily.net"
           />
           <input
             type="password"
@@ -51,7 +48,6 @@ function LoginPage({ setUser }: { setUser: (userId: number | null) => void }) {
             required
             className="border border-gray-300 rounded-full px-2 py-1 bg-purple-200 focus:bg-white h-10 transition-all"
             placeholder="Password"
-            value="l\x[u>Nk"
           />
           {userNotFound && (
             <div className="text-red-500 mb-4 text-center">User not found</div>

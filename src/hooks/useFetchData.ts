@@ -35,6 +35,7 @@ export default function useFetchData() {
       }
     };
     loadData();
+    errorNotification();
   }, []);
 
   return { ...data, isLoading };
