@@ -13,7 +13,8 @@ export type User = {
 
 export type Secrets = Record<string, number>;
 
-const DATA_URL = "https://gongfetest.firebaseio.com/.json";
+// This would ideally be in an environment variable
+const DATA_URL = import.meta.env.VITE_API_URL || "";
 
 export default function useFetchData() {
   const [isLoading, setIsLoading] = useState(true);
