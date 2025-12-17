@@ -14,9 +14,9 @@ function UserNode({ user }: { user: User & { reports: User[] } }) {
   };
 
   return (
-    <li key={user.id}>
+    <li key={user.id} className="hover:bg-primary/10 rounded transition-all">
       <div
-        className="flex items-center mb-2 md:mb-0 gap-1 md:gap-2 cursor-pointer hover:bg-primary/10 rounded transition-all md:p-2"
+        className="flex items-center mb-2 md:mb-0 gap-1 md:gap-2 cursor-pointer  md:p-2"
         onClick={handleToggle}
       >
         <span className="font-extrabold text-2xl text-primary w-6">

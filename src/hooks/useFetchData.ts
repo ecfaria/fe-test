@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export type User = {
   email: string;
@@ -17,6 +18,7 @@ const DATA_URL = "https://gongfetest.firebaseio.com/.json";
 export default function useFetchData() {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState<{ users: User[]; secrets: Secrets }>();
+  const errorNotification = () => toast.error("Failed to fetch data");
 
   useEffect(() => {
     const loadData = async () => {
@@ -25,6 +27,7 @@ export default function useFetchData() {
         const data = await res.json();
         setData(data);
       } catch (err) {
+        errorNotification();
         console.error(err);
       } finally {
         setIsLoading(false);
