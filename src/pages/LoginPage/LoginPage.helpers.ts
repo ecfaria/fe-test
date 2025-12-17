@@ -17,7 +17,7 @@ const POISON_ARRAY = [
   231,
 ];
 
-function make32(inputString) {
+function make32(inputString: string) {
   const targetLength = 32;
   let resultString = "";
   while (resultString.length < targetLength) {
@@ -27,7 +27,7 @@ function make32(inputString) {
   return Array.from(resultString, (char) => char.charCodeAt(0));
 }
 
-function encode(email, password) {
+function encode(email: string, password: string) {
   const emailChars = make32(email);
   const passwordChars = make32(password);
   let encodedResult = "";

@@ -1,4 +1,4 @@
-import type { User } from "../hooks/useFetchData";
+import type { User } from "@/hooks/useFetchData";
 import UserNode from "./UserNode";
 
 function TreeNode({ users }: { users: User[] }) {

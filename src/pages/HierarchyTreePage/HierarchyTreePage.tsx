@@ -1,6 +1,6 @@
-import useFetchData from "../hooks/useFetchData";
-import TreeNode from "./TreeNode";
-import { buildOrgTree } from "../utils/buildOrgTree";
+import useFetchData from "@/hooks/useFetchData";
+import TreeNode from "./TreeRoot";
+import { buildOrgTree } from "@/utils/buildOrgTree";
 
 function LogoutButton({ handleLogout }: { handleLogout: () => void }) {
   return (
@@ -10,8 +10,14 @@ function LogoutButton({ handleLogout }: { handleLogout: () => void }) {
   );
 }
 
-function HierarchyTreePage({ userId, setUser }: { userId: number }) {
-  const { users } = useFetchData();
+function HierarchyTreePage({
+  userId,
+  setUser,
+}: {
+  userId: number;
+  setUser: (userId: number | null) => void;
+}) {
+  const { users, isLoading } = useFetchData();
 
   const currentUser = users?.find((user) => user.id === userId);
 
@@ -19,7 +25,7 @@ function HierarchyTreePage({ userId, setUser }: { userId: number }) {
 
   return (
     <>
-      <div className="flex justify-between items-center p-4 bg-primary/10">
+      <header className="flex justify-between items-center p-4 bg-primary/10">
         <h1 className="text-3xl text-primary ">Hierarchy Tree test</h1>
         {currentUser && (
           <span>
@@ -27,10 +33,11 @@ function HierarchyTreePage({ userId, setUser }: { userId: number }) {
             <LogoutButton handleLogout={() => setUser(null)} />
           </span>
         )}
-      </div>
-      <div className="p-4">
-        <TreeNode users={orgTree} />
-      </div>
+      </header>
+
+      <main className="p-4">
+        {isLoading ? "Loading..." : <TreeNode users={orgTree} />}
+      </main>
     </>
   );
 }

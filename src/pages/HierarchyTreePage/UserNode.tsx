@@ -1,6 +1,7 @@
 import { useState } from "react";
-import UserAvatar from "./UserAvatar";
-import TreeNode, { type User } from "./TreeNode";
+import UserAvatar from "@/components/UserAvatar";
+import TreeNode from "./TreeRoot";
+import type { User } from "@/hooks/useFetchData";
 
 function UserNode({ user }: { user: User & { reports: User[] } }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -15,7 +16,7 @@ function UserNode({ user }: { user: User & { reports: User[] } }) {
   return (
     <li key={user.id}>
       <div
-        className="flex items-center mb-2 gap-2 cursor-pointer"
+        className="flex items-center mb-2 gap-2 cursor-pointer hover:bg-primary/10 p-2 rounded transition-all"
         onClick={handleToggle}
       >
         {

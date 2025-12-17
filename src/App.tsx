@@ -1,18 +1,16 @@
 import { useState } from "react";
-import HierarchyTreePage from "./components/HierarchyTreePage";
-import LoginPage from "./components/LoginPage";
+import HierarchyTreePage from "@/pages/HierarchyTreePage/HierarchyTreePage";
+import LoginPage from "@/pages/LoginPage/LoginPage";
 
 function App() {
-  const [user, setUser] = useState<string | null>(null);
+  const [userId, setUserId] = useState<number | null>(null);
 
   return (
-    <div className="font-inter ">
-      {!user ? (
-        <LoginPage setUser={setUser} />
+    <div className="font-inter">
+      {!userId ? (
+        <LoginPage setUser={setUserId} />
       ) : (
-        <>
-          <HierarchyTreePage userId={user} setUser={setUser} />
-        </>
+        <HierarchyTreePage userId={userId} setUser={setUserId} />
       )}
     </div>
   );
